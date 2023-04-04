@@ -3,14 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace EcomMVC
 {
     public class ApplicationDBContext : DbContext
     {
+
         public ApplicationDBContext():base("ConstrApplicationDB")
         {
             
@@ -20,3 +21,4 @@ namespace EcomMVC
         public DbSet<Category> Catgories { get; set; }
     }
 }
+
