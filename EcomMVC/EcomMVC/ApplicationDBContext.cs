@@ -7,7 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EcomMVC.Repository
+namespace EcomMVC
 {
     public class ApplicationDBContext : DbContext
     {
@@ -16,7 +16,7 @@ namespace EcomMVC.Repository
             
         }
 
-        public DbSet<Product> products { get; set; }
-        public DbSet<Category> catgories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Catgories { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EcomMVC.Models;
+//using EcomMVC.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,9 @@ namespace EcomMVC.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult Index()
         {
+            //ProductRepository productRepository = new ProductRepository();
+            //IEnumerable<Product> products = productRepository.GetAllProducts();
+
             return View();
         }
 
@@ -28,12 +33,12 @@ namespace EcomMVC.Areas.Admin.Controllers
 
         // POST: Admin/Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Product product)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                
                 return RedirectToAction("Index");
             }
             catch
