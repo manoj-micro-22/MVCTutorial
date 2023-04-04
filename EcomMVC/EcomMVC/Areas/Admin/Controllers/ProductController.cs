@@ -13,10 +13,12 @@ namespace EcomMVC.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult Index()
         {
-            ProductRepository productRepository = new ProductRepository();
-            IEnumerable<Product> products = productRepository.GetAllProducts();
+            ApplicationDBContext dbContext = new ApplicationDBContext();
 
-            return View();
+            //IEnumerable<Product> products = productRepository.GetAllProducts();
+            IEnumerable<Product> products = dbContext.Products;
+
+            return View(products);
         }
 
         // GET: Admin/Product/Details/5
