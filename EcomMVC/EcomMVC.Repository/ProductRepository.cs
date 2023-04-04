@@ -11,6 +11,7 @@ namespace EcomMVC.Repository
     {
         public IEnumerable<Product> GetAllProducts()
         {
+            
             return null;
         }
 
