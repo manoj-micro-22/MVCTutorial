@@ -132,11 +132,9 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="ApplicationDBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-
     <Compile Include="Migrations\202304031805308_InitalMigrationDB.cs" />
     <Compile Include="Migrations\202304031805308_InitalMigrationDB.designer.cs">
       <DependentUpon>202304031805308_InitalMigrationDB.cs</DependentUpon>

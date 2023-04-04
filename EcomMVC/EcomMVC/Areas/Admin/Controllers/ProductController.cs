@@ -1,5 +1,5 @@
 ﻿using EcomMVC.Models;
-//using EcomMVC.Repository;
+using EcomMVC.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,8 @@ namespace EcomMVC.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult Index()
         {
-            //ProductRepository productRepository = new ProductRepository();
-            //IEnumerable<Product> products = productRepository.GetAllProducts();
+            ProductRepository productRepository = new ProductRepository();
+            IEnumerable<Product> products = productRepository.GetAllProducts();
 
             return View();
         }
