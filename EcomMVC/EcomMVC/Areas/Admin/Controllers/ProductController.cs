@@ -14,10 +14,12 @@ namespace EcomMVC.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
+        ApplicationDBContext dbContext = new ApplicationDBContext();
+
         // GET: Admin/Product
         public ActionResult Index()
         {
-            ApplicationDBContext dbContext = new ApplicationDBContext();
+            
             //IEnumerable<Product> products = productRepository.GetAllProducts();
             IEnumerable<Product> products = dbContext.Products;
 
@@ -31,9 +33,8 @@ namespace EcomMVC.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            ApplicationDBContext dbContext = new ApplicationDBContext();
-            var product = dbContext.Products.SingleOrDefault(e => e.ProductId == id);
+            
+            var product = dbContext.Products.FirstOrDefault(e => e.ProductId == id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -56,7 +57,7 @@ namespace EcomMVC.Areas.Admin.Controllers
             try
             {
                 // TODO: Add insert logic here
-                ApplicationDBContext dbContext = new ApplicationDBContext();
+                
                 dbContext.Products.Add(product);
                 dbContext.SaveChanges();
 
@@ -76,8 +77,8 @@ namespace EcomMVC.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            ApplicationDBContext dbContext = new ApplicationDBContext();
-            var product = dbContext.Products.SingleOrDefault(e => e.ProductId == id); 
+            
+            var product = dbContext.Products.FirstOrDefault(e => e.ProductId == id); 
             if(product == null)
             {
                 return HttpNotFound();
@@ -106,9 +107,8 @@ namespace EcomMVC.Areas.Admin.Controllers
         {
             try
             {
-                
-                ApplicationDBContext dbContext = new ApplicationDBContext();
-                Product product = dbContext.Products.SingleOrDefault(e => e.ProductId == id);
+                                
+                Product product = dbContext.Products.FirstOrDefault(e => e.ProductId == id);
                 UpdateModel(product);
                 dbContext.SaveChanges();
 
@@ -122,21 +122,27 @@ namespace EcomMVC.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product/Delete/5
+        //[HttpDelete]
         public ActionResult Delete(int id)
         {
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            ApplicationDBContext dbContext = new ApplicationDBContext();
-            var product = dbContext.Products.SingleOrDefault(e => e.ProductId == id);
+            
+            var product = dbContext.Products.FirstOrDefault(e => e.ProductId == id);
             if (product == null)
             {
                 return HttpNotFound();
-            }            
+            }
+            
+            //dbContext.Products.Remove(product);
+
+            //dbContext.SaveChanges();
 
             return View(product);
+
+            //return RedirectToAction("Index");
 
             //return View();
         }
@@ -149,8 +155,6 @@ namespace EcomMVC.Areas.Admin.Controllers
             {
                 // TODO: Add delete logic here
 
-                ApplicationDBContext dbContext = new ApplicationDBContext();
-                
                 var product = dbContext.Products.SingleOrDefault(e => e.ProductId == id);
 
                 dbContext.Products.Remove(product);
@@ -164,6 +168,6 @@ namespace EcomMVC.Areas.Admin.Controllers
                 return View();
             }
         }
-        
+
     }
 }
