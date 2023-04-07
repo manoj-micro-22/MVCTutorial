@@ -18,7 +18,6 @@ namespace EcomMVC.Areas.Admin.Controllers
         public ActionResult Index()
         {
             ApplicationDBContext dbContext = new ApplicationDBContext();
-
             //IEnumerable<Product> products = productRepository.GetAllProducts();
             IEnumerable<Product> products = dbContext.Products;
 

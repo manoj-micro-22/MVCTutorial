@@ -141,6 +141,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CatrgoryRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Services\AdminServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -239,10 +242,6 @@
     <ProjectReference Include="..\EcomMVC.Models\EcomMVC.Models.csproj">
       <Project>{5f86c609-513c-4cb5-a81c-842af6a232bf}</Project>
       <Name>EcomMVC.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EcomMVC.Repository\EcomMVC.Repository.csproj">
-      <Project>{82181c1e-fdb6-403a-a933-5a59b8100bbc}</Project>
-      <Name>EcomMVC.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
