@@ -6,8 +6,7 @@ namespace EcomMVC.Repository
     public class ProductRepository
     {
         public IEnumerable<Product> GetAllProducts()
-        {
-            
+        {            
             return null;
         }
 

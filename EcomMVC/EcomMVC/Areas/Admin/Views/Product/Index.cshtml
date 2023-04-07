@@ -42,11 +42,12 @@
             @Html.DisplayFor(modelItem => item.CategoryId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { onclick = "return confirm('Do you really want to delete the Product ID : " + item.ProductId + "?')" } ) 
         </td>
     </tr>
 }
 
 </table>
+ 
