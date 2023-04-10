@@ -9,12 +9,11 @@ namespace EcomMVC.Areas.Admin.Controllers
 {
     public class CategoryController : Controller
     {
+        ApplicationDBContext dbContext = new ApplicationDBContext();
         // GET: Admin/Category
         public ActionResult Index()
         {
-            List<Category> categoryList = new List<Category>();
-            categoryList.Add(new Category() { CategoryId = 1, CategoryName = "Electronics" });
-            categoryList.Add(new Category() { CategoryId = 2, CategoryName = "Home" });
+            IEnumerable<Category> categoryList = dbContext.Catgories;
 
             return View(categoryList);
         }
