@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EcomMVC.Models.Product>
+﻿@model IEnumerable<EcomMVC.Models.Dto.ProductDto>
 
 @{
     ViewBag.Title = "Index";
@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CategoryId)
+            @Html.DisplayNameFor(model => model.CategoryName)
         </th>
         <th></th>
     </tr>
@@ -39,7 +39,7 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CategoryId)
+            @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |

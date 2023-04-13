@@ -139,6 +139,10 @@
     <Compile Include="Migrations\202304031805308_InitalMigrationDB.designer.cs">
       <DependentUpon>202304031805308_InitalMigrationDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304111051127_ProductId_to_Int.cs" />
+    <Compile Include="Migrations\202304111051127_ProductId_to_Int.designer.cs">
+      <DependentUpon>202304111051127_ProductId_to_Int.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CatrgoryRepository.cs" />
@@ -247,6 +251,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304031805308_InitalMigrationDB.resx">
       <DependentUpon>202304031805308_InitalMigrationDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304111051127_ProductId_to_Int.resx">
+      <DependentUpon>202304111051127_ProductId_to_Int.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

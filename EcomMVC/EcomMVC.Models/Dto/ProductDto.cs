@@ -6,22 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EcomMVC.Models
+namespace EcomMVC.Models.Dto
 {
-    public class Product
-    {
-        [Key]
+    public class ProductDto
+    {        
         public int ProductId { get; set; }
 
-        [Required(AllowEmptyStrings = false,ErrorMessage ="Product Name is Required!")] 
+        [DisplayName("Producat Name")]
         public string ProductName { get; set; }
 
-        [Range(minimum: 10, maximum: 10000,ErrorMessage ="Unit Price is Required!")]
+        [DisplayName("Unit Price")]
         public double UnitPrice { get; set; }
 
         public string Description { get; set; }
 
-        [Required(AllowEmptyStrings = false,ErrorMessage ="Please select Product Category!")]
         public int CategoryId { get; set; }
+
+        [DisplayName("Product Category")]
+        public string CategoryName { get; set; }
     }
 }

@@ -1,27 +1,32 @@
 ﻿using EcomMVC.Models;
+using EcomMVC.Models.Dto;
 using EcomMVC.Repository;
-using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 
 namespace EcomMVC.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        ApplicationDBContext dbContext = new ApplicationDBContext();
+        //ProductRepository productRepository= new ProductRepository();
+
+        private readonly ProductRepository productRepository;
+        private readonly ApplicationDBContext dbContext;        
+
+        public ProductController()
+        {            
+            dbContext = new ApplicationDBContext();
+            productRepository = new ProductRepository(dbContext);
+        }
 
         // GET: Admin/Product
         public ActionResult Index()
         {
             
-            //IEnumerable<Product> products = productRepository.GetAllProducts();
-            IEnumerable<Product> products = dbContext.Products;
+            IEnumerable<ProductDto> products = productRepository.GetAllProducts();
+            //IEnumerable<Product> products = dbContext.Products;
 
             return View(products);
         }
@@ -46,7 +51,7 @@ namespace EcomMVC.Areas.Admin.Controllers
 
         // GET: Admin/Product/Create
         public ActionResult Create()
-        {
+        {            
             return View();
         }
 
