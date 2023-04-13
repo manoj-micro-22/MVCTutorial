@@ -135,24 +135,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    
     <Compile Include="Migrations\202304031805308_InitalMigrationDB.cs" />
     <Compile Include="Migrations\202304031805308_InitalMigrationDB.designer.cs">
       <DependentUpon>202304031805308_InitalMigrationDB.cs</DependentUpon>
     </Compile>
-    
     <Compile Include="Migrations\202304111051127_ProductId_to_Int.cs" />
-    
     <Compile Include="Migrations\202304111051127_ProductId_to_Int.designer.cs">
       <DependentUpon>202304111051127_ProductId_to_Int.cs</DependentUpon>
     </Compile>
-    
     <Compile Include="Migrations\202304101817387_CategoryNameRequired.cs" />
-    
     <Compile Include="Migrations\202304101817387_CategoryNameRequired.designer.cs">
       <DependentUpon>202304101817387_CategoryNameRequired.cs</DependentUpon>
     </Compile>
-    
+    <Compile Include="Migrations\202304131721085_updateProductCategory.cs" />
+    <Compile Include="Migrations\202304131721085_updateProductCategory.designer.cs">
+      <DependentUpon>202304131721085_updateProductCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CatrgoryRepository.cs" />
@@ -254,29 +252,26 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\EcomMVC.Models\EcomMVC.Models.csproj">
       <Project>{5f86c609-513c-4cb5-a81c-842af6a232bf}</Project>
       <Name>EcomMVC.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304031805308_InitalMigrationDB.resx">
       <DependentUpon>202304031805308_InitalMigrationDB.cs</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="Migrations\202304111051127_ProductId_to_Int.resx">
       <DependentUpon>202304111051127_ProductId_to_Int.cs</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="Migrations\202304101817387_CategoryNameRequired.resx">
       <DependentUpon>202304101817387_CategoryNameRequired.cs</DependentUpon>
     </EmbeddedResource>
-    
+    <EmbeddedResource Include="Migrations\202304131721085_updateProductCategory.resx">
+      <DependentUpon>202304131721085_updateProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
-  
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

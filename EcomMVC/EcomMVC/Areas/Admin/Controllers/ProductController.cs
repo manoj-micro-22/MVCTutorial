@@ -14,11 +14,13 @@ namespace EcomMVC.Areas.Admin.Controllers
 
         private readonly ProductRepository productRepository;
         private readonly ApplicationDBContext dbContext;        
+        private readonly CatrgoryRepository catrgoryRepository;
 
         public ProductController()
         {            
             dbContext = new ApplicationDBContext();
             productRepository = new ProductRepository(dbContext);
+            catrgoryRepository = new CatrgoryRepository(dbContext);
         }
 
         // GET: Admin/Product
@@ -52,6 +54,7 @@ namespace EcomMVC.Areas.Admin.Controllers
         // GET: Admin/Product/Create
         public ActionResult Create()
         {            
+            ViewBag.Categories = catrgoryRepository.GetCategories();
             return View();
         }
 
