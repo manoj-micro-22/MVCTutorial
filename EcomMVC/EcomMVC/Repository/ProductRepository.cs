@@ -3,37 +3,25 @@ using EcomMVC.Models.Dto;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace EcomMVC.Repository
 {
     public class ProductRepository
     {
         private readonly ApplicationDBContext dbContext;
-
+        
         public ProductRepository(ApplicationDBContext dBContext)
         {
             dbContext = dBContext;
         }
 
         //ApplicationDBContext dbContext = new ApplicationDBContext();
-        public IEnumerable<ProductDto> GetAllProducts()
+        public List<Product> GetProducts()
         {
-            var product = from p in dbContext.Products
-                          join c in dbContext.Catgories on p.CategoryId equals c.CategoryId
-                          select new ProductDto()
-                          {
-                              ProductId = p.ProductId,
-                              ProductName = p.ProductName,
-                              UnitPrice = p.UnitPrice,
-                              Description = p.Description,
-                              CategoryId = c.CategoryId,
-                              CategoryName = c.CategoryName
-                          };
-
-            //return (IEnumerable<ProductDto>)product;
-            return product;
-            
+            return dbContext.Products.ToList();
         }
 
         public Product GetProductById(int id)
@@ -42,18 +30,33 @@ namespace EcomMVC.Repository
         }
 
         public Product AddProduct(Product product)
-        {
-            return null;
+        {                        
+            dbContext.Products.Add(product);
+            dbContext.SaveChanges();
+            return product;
         }
 
         public Product UpdateProduct(Product product)
         {
-            return null;
+            dbContext.Products.AddOrUpdate(product);
+            dbContext.SaveChanges();
+            return product;
         }
 
-        public Product DeletProduct(int id)
+        public bool DeletProduct(int id)
         {
-            return null;
+            try
+            {
+                var product = dbContext.Products.FirstOrDefault(p => p.ProductId == id);
+                dbContext.Products.Remove(product);
+                dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;                              
+            }
+           
         }
     }
 }

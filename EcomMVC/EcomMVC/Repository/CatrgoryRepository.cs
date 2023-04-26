@@ -1,6 +1,7 @@
 ﻿using EcomMVC.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace EcomMVC.Repository
 {
@@ -20,9 +21,9 @@ namespace EcomMVC.Repository
         /// Get All Categories
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Category> GetCategories()
+        public List<Category> GetCategories()
         {
-            IEnumerable<Category> categoryList = dbContext.Catgories.ToList();
+            List<Category> categoryList = dbContext.Catgories.ToList();
             
             return categoryList;
         }
@@ -95,6 +96,11 @@ namespace EcomMVC.Repository
             {
                 throw;
             }
+        }
+
+        public List<SelectListItem> GetCategotyDropDownList() 
+        {
+            return dbContext.Catgories.Select(aa => new SelectListItem() { Text = aa.CategoryName, Value = aa.CategoryId.ToString() }).ToList();
         }
     }
 }

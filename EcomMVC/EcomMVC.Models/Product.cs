@@ -16,7 +16,7 @@ namespace EcomMVC.Models
         [Required(AllowEmptyStrings = false,ErrorMessage ="Product Name is Required!")] 
         public string ProductName { get; set; }
 
-        [Range(minimum: 10, maximum: 10000,ErrorMessage ="Unit Price is Required!")]
+        [Range(minimum: 10, maximum: 150000,ErrorMessage ="Unit Price is Required!")]
         public double UnitPrice { get; set; }
 
         public string Description { get; set; }
